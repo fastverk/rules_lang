@@ -24,13 +24,13 @@ def _atlas_ext_impl(_ctx):
     http_archive(
         name = "polyglot_atlas_linux_x86_64",
         url = _BASE + "/polyglot_atlas-linux_x86_64.tar.gz",
-        # sha256 filled in once atlas-v0.1.0 is published.
+        sha256 = "007aee5277d38b84de77caadf46353aff90fd47a08df00c41a1b28c9434c6e72",
         build_file_content = _ATLAS_BUILD,
     )
     http_archive(
         name = "polyglot_atlas_darwin_arm64",
         url = _BASE + "/polyglot_atlas-darwin_arm64.tar.gz",
-        # sha256 filled in once atlas-v0.1.0 is published.
+        sha256 = "fc2dc919ba44e788d3bf37a99ab16a0cad431e3765c943f2357883d5e5384fb6",
         build_file_content = _ATLAS_BUILD,
     )
 
