@@ -4,6 +4,17 @@ All notable changes to rules_lang. The format is loosely
 [Keep a Changelog](https://keepachangelog.com/) — version headers mirror the
 published bazel-registry entries.
 
+## 0.4.0 — cross-repo emit boundary
+
+- Adds the `polyglot.emit.v1` emit boundary: `//proto/{lir,lir_codec,emit}.proto`
+  + `//tools/emit:manifest_packer` (the Python packer) + the
+  `//tools/emit:emit_manifest.bzl` `polyglot_emit_manifest` rule. A producer
+  (e.g. `aion/lean`) renders source Lean-side via the atlas
+  (`//polyglot:typescript_aion_emit_toolchain`) and packs it into a
+  `TranslationManifest` binpb; a consumer (`aion/lift`'s `aion_ts_package`,
+  `aion/sql`) decodes + assembles it with no Lean toolchain and no second
+  renderer. Adds `rules_proto` + `protobuf` deps.
+
 ## 0.3.0 — atlas-v0.3.1: Syntax precedence kernel
 
 - `//lean:atlas` now bundles the generic `Syntax.Expr` AST + the `Syntax.Prec`
